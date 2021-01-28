@@ -23,10 +23,10 @@ resource "aws_iam_role" "sys_74" {
 EOF
 }
 
-# resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
-#   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
-#   role       = aws_iam_role.sys_74.name
-# }
+resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
+  role       = aws_iam_role.sys_74.name
+}
 
 
 # resource "aws_iam_instance_profile" "test_profile" {

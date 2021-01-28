@@ -29,10 +29,10 @@ resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
 }
 
 
-# resource "aws_iam_instance_profile" "test_profile" {
-#   name = "test_profile"
-#   role = aws_iam_role.role.name
-# }
+resource "aws_iam_instance_profile" "test_profile" {
+  name = "test_profile"
+  role = aws_iam_role.role.name
+}
 
 # resource "aws_iam_role" "role" {
 #   name = "test_role"

@@ -1,3 +1,8 @@
+provider "aws" {
+  profile = "default"
+  region = "us-west-2"
+}
+
 resource "aws_iam_role" "sys_74" {
   name = "sys-74-role"
 

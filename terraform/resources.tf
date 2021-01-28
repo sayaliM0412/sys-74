@@ -34,26 +34,26 @@ resource "aws_iam_instance_profile" "test_profile" {
   role = aws_iam_role.role.name
 }
 
-# resource "aws_iam_role" "role" {
-#   name = "test_role"
-#   path = "/"
+resource "aws_iam_role" "role" {
+  name = "sys_74_role"
+  path = "/"
 
-#   assume_role_policy = <<EOF
-# {
-#     "Version": "2012-10-17",
-#     "Statement": [
-#         {
-#             "Action": "sts:AssumeRole",
-#             "Principal": {
-#                "Service": "ec2.amazonaws.com"
-#             },
-#             "Effect": "Allow",
-#             "Sid": ""
-#         }
-#     ]
-# }
-# EOF
-# }
+  assume_role_policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Action": "sts:AssumeRole",
+            "Principal": {
+               "Service": "ec2.amazonaws.com"
+            },
+            "Effect": "Allow",
+            "Sid": ""
+        }
+    ]
+}
+EOF
+}
 
 # resource "aws_sns_topic" "sys_74" {
 #   name = "sys_74-topic"

@@ -23,6 +23,26 @@ resource "aws_iam_role" "sys_74" {
 EOF
 }
 
+data "aws_ami" "ubuntu_aws_ami" {
+    most_recent = true
+    filter {
+        name = "name"
+        values = ["ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"]
+    }
+    owners = ["099720109477"]
+}
+
+resource "aws_instance" "sys_74" {
+  ami           = "ami-07dd19a7900a1f049"
+  instance_type = "t3.micro"
+
+  tags = {
+    Name = "sys-74"
+  }
+}
+
+
+
 resource "aws_iam_role_policy_attachment" "AWSCodeDeployRole" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSCodeDeployRole"
   role       = aws_iam_role.sys_74.name
